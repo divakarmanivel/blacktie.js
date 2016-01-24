@@ -38,7 +38,7 @@ Add index.js inside your www/js as
 
 You can edit this index file to your needs.
 
-### Hamburger menu
+## Hamburger menu
 
 To add a hamburger menu setup BlackTie and add this code inside body element
 
@@ -56,3 +56,5 @@ All other elements must come under the container div element below this ul tag.
     //app body content goes here
     ..
     </div>
+
+## Functions
