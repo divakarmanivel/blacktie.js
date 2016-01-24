@@ -2,14 +2,6 @@
 
 > BlackTie is an attempt to make apps that are built using cordova have uniformity and more importantly to help create cordova apps easily.
 
-## Usage
-
-### Desktop
-
-In your browser, open the file:
-
-    /www/index.html
-
 ## To contribute
 
 To edit js, open the file:
