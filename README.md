@@ -85,20 +85,22 @@ I would recommend adding a seperate js/css file in the respective folders for ea
 
 Copy all files from www/js, www/css and www/fonts to your applications www folder.
 Add these lines in the head tag as:
-       	<head>
-       	..
-        <!-- BlackTie CSS -->
-        <link rel="stylesheet" type="text/css" href="./css/blacktie.css" />
-        <!-- Font-Family CSS -->
-	<link href='./css/font-family.css' rel='stylesheet' type='text/css'>
-	..
-	</head>
+
+    <head>
+    ..
+    <!-- BlackTie CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/blacktie.css" />
+    <!-- Font-Family CSS -->
+    <link href='./css/font-family.css' rel='stylesheet' type='text/css'>
+    ..
+    </head>
 
 Add these lines before closing body tag as:
-	<body>
-	..
-	<!-- JQuery -->
-       	<script src="./js/lib/jquery.min.js" type="text/javascript"></script>
-       	<!-- BlackTie -->
-       	<script src="./js/blacktie.js" type="text/javascript"></script>
-	</body>
+
+    <body>
+    ..	
+    <!-- JQuery -->
+    <script src="./js/lib/jquery.min.js" type="text/javascript"></script>
+    <!-- BlackTie -->
+    <script src="./js/blacktie.js" type="text/javascript"></script>
+    </body>
