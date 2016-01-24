@@ -8,11 +8,11 @@ To edit js, open the file:
 
     /www/js/blacktie.js
 
-To edit js, open the file:
+To edit css, open the file:
 
     /www/css/blacktie.css
 
-I would recommend adding a seperate js/css file in the respective folders for ease of use. They can be added to the main file if need be.
+I would recommend adding a seperate js/css file in the respective folders for ease of use. They can be added to the main file if needed.
 
 ## Setup
 
@@ -40,7 +40,7 @@ You can edit this index file to your needs.
 
 ### Hamburger menu
 
-To add a hamburger menu setup peach and add this code inside body element
+To add a hamburger menu setup BlackTie and add this code inside body element
 
     <ul id="ham-menu">
     <li class="ham-item"><a href="#">Item one</a></li>
