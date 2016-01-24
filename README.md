@@ -4,7 +4,7 @@
 
 ## Hamburger menu
 
-To add a hamburger menu setup BlackTie and add this code inside body element
+To add a hamburger menu setup BlackTie and add this code inside body element of index.html
 
     <ul id="ham-menu">
     <li class="ham-item"><a href="#">Item one</a></li>
@@ -84,7 +84,7 @@ I would recommend adding a seperate js/css file in the respective folders for ea
 ## Setup
 
 Copy all files from www/js, www/css and www/fonts to your applications www folder.
-Add these lines in the head tag as:
+Add these lines in the head tag of  index.html as:
 
     <head>
     ..
@@ -95,7 +95,7 @@ Add these lines in the head tag as:
     ..
     </head>
 
-Add these lines before closing body tag as:
+Add these lines before closing body tag of index.html as:
 
     <body>
     ..	
