@@ -1,5 +1,3 @@
-//needs fixes
-
 var ALERT_TITLE = "Message";
 var ALERT_OK_BUTTON_TEXT = "OK";
 

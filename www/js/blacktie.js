@@ -493,13 +493,11 @@ initialize : function() {
 			$("label[for=ham-trigger]").stop().slideToggle();
 			$("#emptyHeaderElement").stop().slideToggle();
 			up = !up;
-			log("Scroll direction: down");
 				} else if(newscroll < mypos && up){
 					$("#ham-header").stop().slideToggle();
 					$("label[for=ham-trigger]").stop().slideToggle();
 					$("#emptyHeaderElement").stop().slideToggle();
 					up = !up;
-					log("Scroll direction: up.");
 						}
 			mypos = newscroll;
 		});

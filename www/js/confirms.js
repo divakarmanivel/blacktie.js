@@ -1,5 +1,3 @@
-//needs fixes
-
 var CONFIRM_TITLE = "Message";
 var CONFIRM_OK_BUTTON_TEXT = "YES";
 var CONFIRM_CANCEL_BUTTON_TEXT = "NO";
