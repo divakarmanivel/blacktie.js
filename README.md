@@ -1,6 +1,6 @@
 # BlackTie.js
 
-> BlackTie is a framework to build cross platform HTML/CSS applications using Apache Cordova that have the look and feel of a native app. Create seamless applications with minimal effort from scratch or bootstrap your existing application by simply integrating BlackTie into it.
+> BlackTie is a framework to build cross platform HTML/CSS/JavaScript applications using Apache Cordova that have the look and feel of a native app. Create seamless applications with minimal effort from scratch or bootstrap your existing application by simply integrating BlackTie into it.
 
 # What is Apache Cordova?
 
