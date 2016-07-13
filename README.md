@@ -2,7 +2,7 @@
 
 > BlackTie is a framework to build **cross-platform** and **cross-device** HTML/CSS/JavaScript applications using Apache Cordova that have the look and feel of a native app. Create seamless applications with minimal effort from scratch or bootstrap your existing application by simply integrating BlackTie into it.
 
-> **All you need to know is HTML and CSS and you can leave the rest to BlackTie!**
+> **All you need to know is HTML & CSS and you can leave the rest to BlackTie!**
 
 # What is Apache Cordova?
 
