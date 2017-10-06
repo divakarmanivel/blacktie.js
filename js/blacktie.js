@@ -91,7 +91,7 @@ var blacktie = {
 		for (var key in params) {
 			if (params.hasOwnProperty(key)) {
 				currDOM.css(key, params[key]);
-				blacktie.log(targetId + "{ " + key + ":" + params[key] + " }");
+				this.log(targetId + "{ " + key + ":" + params[key] + " }");
 			}
 		}
 		return false;
@@ -103,7 +103,7 @@ var blacktie = {
 		var container = $("#container");
 		container.empty();
 		container.load(pageurl);
-		log("new page: " + pageurl);
+		this.log("open new page: (" + pageurl +")");
 		return false;
 	},
 
@@ -209,7 +209,7 @@ var blacktie = {
 		showLoading();
 		var connectionstatus = window.navigator.onLine;
 		if (!connectionstatus) {
-			log("no internet connection");
+			this.log("no internet connection");
 			notify("Unable to connect to the Internet.\nPlease check your network connection and try again.", "error");
 			hideLoading();
 			return false;
@@ -253,10 +253,10 @@ var blacktie = {
 			scope: scope,
 			other: other
 		}).done(function (response) {
-			log("logged in");
+			this.log("logged in");
 			setItem("oauth_token", response.access_token);
 		}).fail(function (response) {
-			log("error: " + response.error);
+			this.log("error: " + response.error);
 			setItem("oauth_token", response.access_token);
 			notify("Error signing in. :( ", "error");
 		});
@@ -268,7 +268,7 @@ var blacktie = {
 		showLoading();
 		var connectionstatus = window.navigator.onLine;
 		if (!connectionstatus) {
-			log("no internet connection");
+			this.log("no internet connection");
 			notify("Unable to connect to the Internet.\nPlease check your network connection and try again.", "error");
 			hideLoading();
 			return false;
@@ -307,7 +307,7 @@ function createDb(name, columns) {
 		tx.executeSql('DROP TABLE IF EXISTS ' + name);
 		tx.executeSql('CREATE TABLE IF NOT EXISTS ' + name + heading + ')');
 	});
-	log("created table " + name);
+	this.log("created table " + name);
 	return false;
 }
 
@@ -320,7 +320,7 @@ function addRow(name, columns, values) {
 	var insertStatement = "INSERT INTO " + name + "(" + columns + ") " + "VALUES(" + values + ")";
 	db.transaction(function (tx) {
 		tx.executeSql(insertStatement);
-		log("added row to " + name + " table");
+		this.log("added row to " + name + " table");
 	});
 	return false;
 }
@@ -330,7 +330,7 @@ function addColumn(name, column) {
 	db.transaction(function (tx) {
 		tx.executeSql("ALTER TABLE " + name + "ADD " + column + " NOT NULL DEFAULT '' ");
 	});
-	log("added column to " + name + " table");
+	this.log("added column to " + name + " table");
 	return false;
 }
 
@@ -438,9 +438,9 @@ var oauth = {
 				if (code || error) {
 					//Always close the browser when match is found
 					oauthWindow.close();
-					log("oauth response received");
+					this.log("oauth response received");
 					if (code) {
-						log("sending access token request");
+						this.log("sending access token request");
 						//Exchange the authorization code for an access token
 						$.ajax({
 							url: options.tokenurl + '?grantType=authorizationCode',
@@ -452,17 +452,17 @@ var oauth = {
 							},
 							type: 'POST',
 							success: function (data) {
-								log("oauth success");
+								this.log("oauth success");
 								deferred.resolve(data);
 							},
 							error: function (data) {
-								log("oauth error: " + data.responseJSON.error);
+								this.log("oauth error: " + data.responseJSON.error);
 								deferred.reject(data.responseJSON);
 							}
 						});
 					} else if (error) {
 						//The user denied access to the app
-						log("oauth error: " + error[1]);
+						this.log("oauth error: " + error[1]);
 						deferred.reject({
 							error: error[1]
 						});
@@ -482,16 +482,16 @@ var oauth = {
 				if (access_token || error) {
 					//Always close the browser when match is found
 					oauthWindow.close();
-					log("oauth response received");
+					this.log("oauth response received");
 					if (access_token) {
-						log("oauth success");
+						this.log("oauth success");
 						deferred.resolve({
 							access_token: access_token,
 							token_type: token_type,
 							expires_in: expires_in
 						});
 					} else if (error) {
-						log("oauth error: " + error);
+						this.log("oauth error: " + error);
 						deferred.reject({
 							error: error
 						});
