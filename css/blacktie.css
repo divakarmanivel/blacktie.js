@@ -172,6 +172,9 @@ button {
 	-webkit-border-radius: 10px;
 	margin: 1px;
 	vertical-align: middle;
+	text-align: -moz-center;
+	text-align: -webkit-center;
+	text-align: center;
 }
 
 button:active,
