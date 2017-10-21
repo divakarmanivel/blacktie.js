@@ -4,7 +4,7 @@ demo.hammenu();
 demo.notify("great notification! ", "success");
 
 document.getElementById("click").onclick = function () {
-	var burger = demo.createRatingCard("BlackTie.js", "./images/logo.png", 10);
+	var burger = demo.createStarCard("BlackTie.js", "./images/logo.png", 10);
     demo.addElement(burger);
 };
 

@@ -97,7 +97,7 @@ Shows an elegant notification message. Leave 'type' as blank for default notific
 
 Sets the content of the containing body element
 
-    var cantent = "<p>This is the content!</p";
+    var content = "<p>This is the content!</p";
     demo.setContent(content);
 
 Sets the style of the target element. Use '#elementID' for an element with id and '.class' for elements in a class
@@ -109,9 +109,9 @@ Sets the style of the target element. Use '#elementID' for an element with id an
 
     demo.setStyle(style, ".className");
 
-Returns a DOM element which has star ratings
+Returns a DOM element which has star ratings (maximum 10 star rating)
 
-    var rating = demo.createRatingCard("Blacktie" ,"./images/logo.png" ,5);
+    var rating = demo.createStarCard("Blacktie" ,"./images/logo.png" ,5);
 
 Adds DOM element to containing body
 

@@ -89,8 +89,8 @@ var blacktie = {
 		if (/.|#/.test(targetId)) {
 			currDOM = $(targetId);
 		} else {
-			console.log("Invalid class/id");
-			notify("Something went wrong!", "alert");
+			this.log("Invalid class/id");
+			this.notify("Something went wrong!", "alert");
 			return false;
 		}
 		var params = JSON.parse(style);
@@ -114,7 +114,7 @@ var blacktie = {
 	},
 
 	//creates a rating card element
-	createRatingCard: function (text, imageSource, starRating) {
+	createStarCard: function (text, imageSource, starRating) {
 		var btItem = document.createElement("div");
 		var btItemImg = document.createElement("img");
 		var btItemData = document.createElement("div");
@@ -145,7 +145,7 @@ var blacktie = {
 	//shows a loading element
 	showLoading: function () {
 		if (!document.getElementById("loading")) {
-			mObj = document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
+			mObj = document.body.appendChild(document.createElement("div"));
 			mObj.className = "modalContainers";
 			mObj.id = "loading";
 			mObj.style.height = document.documentElement.scrollHeight + "px";
@@ -168,7 +168,7 @@ var blacktie = {
 	//hides the loading element
 	hideLoading: function () {
 		if (document.getElementById("loading")) {
-			document.getElementsByTagName("body")[0].removeChild(document.getElementById("loading"));
+			document.body.removeChild(document.getElementById("loading"));
 		}
 		return false;
 	},
@@ -501,7 +501,7 @@ var imager = function () {
 	for (i = 0; i < tags.length; i++) {
 		imageObj = tags[i].getAttribute("src");
 		tags[i].setAttribute("src", imageObj);
-		log(imageObj);
+		this.log(imageObj);
 	}
 };
 imager();
