@@ -34,7 +34,7 @@ Add these lines before closing body tag of index.html as:
     <script src="./js/blacktie.js" type="text/javascript"></script>
     </body>
 
-## Contributing
+## Contribution
 
 I welcome pull requests from all! Thanks in advance!
 
@@ -88,7 +88,8 @@ Then in your index.js file, call **hammenu** to initialize the Hamburger navigat
 
 Logs a message to console
 
-    demo.log("This is a message!");
+    var msg = "This is a message!";
+    demo.log(msg);
 
 ### UI
 
@@ -96,14 +97,15 @@ Shows an elegant notification message. Leave 'type' as blank for default notific
 
     demo.notify("This is a default notification");
 
-    demo.notify("This is a default notification","alert");
+    demo.notify("This is an alert notification","alert");
 
-    demo.notify("This is a default notification","error");
+    demo.notify("This is an error notification","error");
 
-    demo.notify("This is a default notification","success");
+    demo.notify("This is a success notification","success");
 
 Sets the content of the containing body element
 
+    var cantent = "<p>This is the content!</p";
     demo.setContent(content);
 
 Sets the style of the target element. Use '#elementID' for an element with id and '.class' for elements in a class
@@ -125,7 +127,8 @@ Adds DOM element to containing body
 
 Opens a page in the containing body
 
-    demo.openPage("./home.html");
+    var url = "./home.html";
+    demo.openPage(url);
 
 Shows a loading element
 
