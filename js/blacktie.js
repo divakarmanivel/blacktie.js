@@ -70,6 +70,12 @@ var blacktie = {
 	//UI//
 	/////
 
+	//adds element to containing body element
+	addElement: function (element) {
+		document.getElementById("container").appendChild(element);
+		return false;
+	},
+
 	//sets the content of the containing body element
 	setContent: function (content) {
 		$("#container").empty();
@@ -107,66 +113,33 @@ var blacktie = {
 		return false;
 	},
 
-	createCard: function (title) {
-		var card = {
-			title: title
-		};
-		return card;
-	},
-
-	createButton: function (text, callback) {
-		var button = {
-			text: text,
-			callback: callback
-		};
-		return button;
-	},
-
-	//creates a card element
-	createCards: function (cards) {
-		Object.keys(cards).forEach(function (card) {
-			var cardDiv = document.createElement("div"),
-				titleDiv = document.createElement("div"),
-				btnsDiv = document.createElement("div");
-			cardDiv.className = "card";
-			titleDiv.className = "title";
-			btnsDiv.className = "btns";
+	//creates a rating card element
+	createRatingCard: function (text, imageSource, starRating) {
+		var btItem = document.createElement("div");
+		var btItemImg = document.createElement("img");
+		var btItemData = document.createElement("div");
+		var btItemRatings = document.createElement("div");
+		var btItemText = document.createElement("p");
+		btItem.className = "btItem";
+		btItemImg.className = "btItemImg";
+		btItemData.className = "btItemData";
+		btItemRatings.className = "btItemRatings";
+		btItemText.className = "btItemText";
 	
-			var c = cards[card];
-			var name;
-			Object.keys(c).forEach(function (button) {
-				var b = c[button];
-				if (button == "title") {
-					name = b;
-				} else {
-					var btncardDiv = document.createElement("div");
-					btncardDiv.className = "btn-card";
-					btncardDiv.onclick = b.callback;
-					btncardDiv.innerHTML = b.text;
-					btnsDiv.appendChild(btncardDiv);
-				}
-			});
-			
-			titleDiv.innerHTML = name;
-			cardDiv.appendChild(titleDiv);
-			cardDiv.appendChild(btnsDiv);
-		});
-		/*
-				buttons = buttons.split(",");
-				callbacks = callbacks.split(",");
-				for (var i = 0; i < buttons.length; i++) {
-					var btncardDiv = document.createElement("div");
-					btncardDiv.className = "btn-card";
-					btncardDiv.onclick = callbacks[i];
-					btncardDiv.innerHTML = buttons[i];
-					btnsDiv.appendChild(btncardDiv);
-				}
-
-				titleDiv.innerHTML = title;
-				cardDiv.appendChild(titleDiv);
-				cardDiv.appendChild(btnsDiv);
-				return cardDiv;
-			*/
+		btItemImg.src = imageSource;
+		for(var i=0;i<10;i++){
+			var star = document.createElement("span");
+			star.innerHTML = "★";
+			if(i>=starRating){star.className = "btItemRating";}
+			btItemRatings.appendChild(star);
+		}
+		btItemText.innerHTML = text;
+		
+		btItem.appendChild(btItemImg);
+		btItemData.appendChild(btItemRatings);
+		btItemData.appendChild(btItemText);
+		btItem.appendChild(btItemData);
+		return btItem;
 	},
 
 	//shows a loading element
@@ -205,13 +178,13 @@ var blacktie = {
 	//////////
 
 	//opens an oauth connection to a service
-	openOauth: function (baseurl, tokenurl, clientid, apikey, scope, responsetype, other, callback) {
-		showLoading();
+	openGoogleOauth: function (baseurl, tokenurl, clientid, apikey, scope, responsetype, other, callback) {
+		this.showLoading();
 		var connectionstatus = window.navigator.onLine;
 		if (!connectionstatus) {
 			this.log("no internet connection");
-			notify("Unable to connect to the Internet.\nPlease check your network connection and try again.", "error");
-			hideLoading();
+			this.notify("Unable to connect to the Internet.\nPlease check your network connection and try again.", "error");
+			this.hideLoading();
 			return false;
 		}
 
@@ -240,7 +213,7 @@ var blacktie = {
 		}
 
 		if ((!baseurl || !scope) || (!clientid && !apikey) || (responsetype == "code" && tokenurl == "")) {
-			notify("Invalid request.", "alert");
+			this.notify("Invalid request.", "alert");
 			return false;
 		}
 		oauth.authorize({
@@ -253,24 +226,26 @@ var blacktie = {
 			scope: scope,
 			other: other
 		}).done(function (response) {
+			this.hideLoading();
 			this.log("logged in");
-			setItem("oauth_token", response.access_token);
+			this.setItem("oauth_token", response.access_token);
 		}).fail(function (response) {
+			this.hideLoading();
 			this.log("error: " + response.error);
-			setItem("oauth_token", response.access_token);
-			notify("Error signing in. :( ", "error");
+			this.setItem("oauth_token", response.access_token);
+			this.notify("Error signing in. :( ", "error");
 		});
 		return false;
 	},
 
 	//sends a get or post request
 	sendRequest: function (url, method, data, headers, callback) {
-		showLoading();
+		this.showLoading();
 		var connectionstatus = window.navigator.onLine;
 		if (!connectionstatus) {
 			this.log("no internet connection");
-			notify("Unable to connect to the Internet.\nPlease check your network connection and try again.", "error");
-			hideLoading();
+			this.notify("Unable to connect to the Internet.\nPlease check your network connection and try again.", "error");
+			this.hideLoading();
 			return false;
 		}
 		method = method.toUpperCase();
@@ -289,6 +264,7 @@ var blacktie = {
 				callback();
 			}
 		});
+		this.hideLoading();
 		return false;
 	}
 };

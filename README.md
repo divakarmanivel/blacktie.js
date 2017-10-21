@@ -2,7 +2,7 @@
 
 BlackTie is a framework to build **cross-platform** and **cross-device** applications using Apache Cordova that have the look and feel of a native app. Create seamless applications with minimal effort from scratch or power your existing application by simply integrating BlackTie into it.
 
-> **All you need to know is HTML & CSS and you can leave the rest to BlackTie!**
+**All you need to know is HTML & CSS and you can leave the rest to BlackTie!**
 
 # What is Apache Cordova?
 
@@ -36,15 +36,7 @@ Add these lines before closing body tag of index.html as:
 
 ## Contributing
 
-Create a pull request and it will be merged.
-
-To edit javascript, open the file:
-
-    /www/js/blacktie.js
-
-To edit css, open the file:
-
-    /www/css/blacktie.css
+I welcome pull requests from all! Thanks in advance!
 
 ## Code of Conduct
 
@@ -52,70 +44,139 @@ Visit our [Code of Conduct](CODE_OF_CONDUCT.md) page for an overview on our grou
 
 # Usage
 
-Initialize BlackTie
+Initialize BlackTie and create an instance in your index.js file
 
     var demo = blacktie.init();
+
+Add a div element inside the body element of index.html
+
+    <body>
+        <div id="container">
+        ..
+        //app body content goes here
+        ..
+        </div>
+    </body>
 
 The following features are available in BlackTie framework
 
 ## Hamburger navigation menu
 
-To add a hamburger menu setup BlackTie and add this code inside body element of index.html
+To add a hamburger menu setup BlackTie and add this code above the **container** element of index.html. It should look like this.
 
-    <ul id="ham-menu">
-    <li class="ham-item"><a href="#">Item one</a></li>
-    <li class="ham-item"><a href="#">Item two</a></li>
-    <li class="ham-item"><a href="#">Item three</a></li>
-    <li class="ham-item"><a href="#">Item four</a></li>
-    </ul>
+    <body>
+        <ul id="ham-menu">
+        <li class="ham-item"><a href="#">Item one</a></li>
+        <li class="ham-item"><a href="#">Item two</a></li>
+        <li class="ham-item"><a href="#">Item three</a></li>
+        <li class="ham-item"><a href="#">Item four</a></li>
+        </ul>
     
-All other elements must come under the container div element below this ul tag.
+        //All other content must come under the container div element below this ul tag.
+        <div id="container">
+        ..
+        //app body content goes here
+        ..
+        </div>
+    </body>
 
-    <div id="container">
-    ..
-    //app body content goes here
-    ..
-    </div>
-
-In your index.js file,
+Then in your index.js file, call **hammenu** to initialize the Hamburger navigation.
     
     demo.hammenu();
 
 ### Debugging
 
-demo.log(msg): Logs a message to console
+Logs a message to console
+
+    demo.log("This is a message!");
 
 ### UI
 
-demo.notify(msg,type): Shows an elegant notification message. Leave 'type' as blank for default notification
+Shows an elegant notification message. Leave 'type' as blank for default notification
 
-demo.setContent(content): Sets the content of the containing body element
+    demo.notify("This is a default notification");
 
-demo.setStyle(style, targetId): Sets the style of the target element. Use '#elementID' for an element with id and '.class' for elements in a class
+    demo.notify("This is a default notification","alert");
 
-demo.createCard(title,buttons,callbacks): Creates a card element
+    demo.notify("This is a default notification","error");
 
-demo.openPage(pageurl): Opens a page in the containing body
+    demo.notify("This is a default notification","success");
 
-demo.showLoading(): Shows a loading element
+Sets the content of the containing body element
 
-demo.hideLoading(): Hides the loading element
+    demo.setContent(content);
+
+Sets the style of the target element. Use '#elementID' for an element with id and '.class' for elements in a class
+
+    var style = '{"backgroundColor":"Red", "color":"White"}';
+    demo.setStyle(style, "#classID");
+
+    OR
+
+    demo.setStyle(style, ".className");
+
+Returns a DOM element which has star ratings
+
+    var rating = demo.createRatingCard("Blacktie" ,"./images/logo.png" ,5);
+
+Adds DOM element to containing body
+
+    demo.addElement(rating);
+
+Opens a page in the containing body
+
+    demo.openPage("./home.html");
+
+Shows a loading element
+
+    demo.showLoading();
+
+Hides the loading element
+
+    demo.hideLoading();
 
 ### Network
 
-demo.openOauth(baseurl, tokenurl, clientid, apikey, scope, responsetype, other, callback): Opens an oauth connection to a service
+Opens an oauth connection to a service
+    var baseurl = "https://mygoogleendpoint/";
+    var tokenurl = "users";
+    var clientid = "my_id";
+    var apikey = "my_key";
+    var scope = "";
+    var responsetype = "token"; //It can also be "code"
+    var other = ""; //Any other payloads
+    var callback = function(){};
+    demo.openGoogleOauth(baseurl, tokenurl, clientid, apikey, scope, responsetype, other, callback);
 
-demo.sendRequest(url, method, data, headers, callback): Sends a get or post request
+Sends a get or post request
+
+    var url = "https://myurl";
+	var data = {
+		date: payload
+	};    
+	var headers = {
+		Authorization: sometokenhere
+	};
+    var callback = function(){};    
+    demo.sendRequest(url, method, data, headers, callback);
 
 ### Storage
 
-demo.setItem(key, value): Stores a <key,vaue> pair to localStorage
+Stores a <key,vaue> pair to localStorage
 
-demo.getItem(key): Gets the value for a specified key in localStorage
+    demo.setItem(key, value);
 
-demo.setVal(key, value): Stores a <key,vaue> pair to sessionStorage
+Gets the value for a specified key in localStorage
+    
+    demo.getItem(key);
 
-demo.getVal(key): Gets the value for a specified key in sessionStorage
+Stores a <key,vaue> pair to sessionStorage
+    
+    demo.setVal(key, value);
+
+Gets the value for a specified key in sessionStorage
+    
+    demo.getVal(key);
 
 # License
 
