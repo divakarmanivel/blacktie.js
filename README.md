@@ -12,7 +12,7 @@ Apache Cordova enables software programmers to build applications for mobile dev
 
 BlackTie is focussed on creating applications that are compatible with all browsers and devices. Every feature in the framework is tested on multiple browsers and devices.
 
-## Setup
+# Setup
 
 Copy all files from www/js, www/css and www/fonts to your applications www folder.
 Add these lines in the head tag of index.html as:
@@ -34,14 +34,6 @@ Add these lines before closing body tag of index.html as:
     <script src="./js/blacktie.js" type="text/javascript"></script>
     </body>
 
-## Contribution
-
-I welcome pull requests from all! Thanks in advance!
-
-## Code of Conduct
-
-Visit our [Code of Conduct](CODE_OF_CONDUCT.md) page for an overview on our ground rules.
-
 # Usage
 
 Initialize BlackTie and create an instance in your index.js file
@@ -60,7 +52,7 @@ Add a div element inside the body element of index.html
 
 The following features are available in BlackTie framework
 
-## Hamburger navigation menu
+### Hamburger navigation menu
 
 To add a hamburger menu setup BlackTie and add this code above the **container** element of index.html. It should look like this.
 
@@ -180,6 +172,14 @@ Stores a <key,vaue> pair to sessionStorage
 Gets the value for a specified key in sessionStorage
     
     demo.getVal(key);
+
+# Contribution
+
+I welcome pull requests from all! Thanks in advance! For any issues visit our [Issue Template](ISSUE_TEMPLATE.md) page.
+
+# Code of Conduct
+
+Visit our [Code of Conduct](CODE_OF_CONDUCT.md) page for an overview on our ground rules.
 
 # License
 
