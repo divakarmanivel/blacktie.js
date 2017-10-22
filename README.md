@@ -134,6 +134,7 @@ Hides the loading element
 ### Network
 
 Opens an oauth connection to a service
+
     var baseurl = "https://mygoogleendpoint/";
     var tokenurl = "users";
     var clientid = "my_id";
