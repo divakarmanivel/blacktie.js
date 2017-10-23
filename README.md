@@ -1,4 +1,6 @@
-<img src="./images/logo.png" width="100%" alt="BlackTie.js logo"/>
+<p align="center">
+<img src="./images/logo.png" alt="BlackTie.js logo"/>
+</p>
 
 BlackTie is a framework to build *cross-platform* and *cross-device* HTML/CSS/JavaScript applications that have the look and feel of a native app. Create seamless applications with minimal effort from scratch or power your existing application by simply integrating BlackTie.js into it. Create standalone applications using just notepad or any text editor of your choice!
 
@@ -177,7 +179,7 @@ Gets the value for a specified key in sessionStorage
 
 # Contribution
 
-I welcome pull requests from all! Thanks in advance! For any issues visit our [Issue Template](ISSUE_TEMPLATE.md) page.
+I welcome pull requests from all! Thanks in advance! Visit our [Contributions](CONTRIBUTING.md) page for more information.
 
 # Code of Conduct
 
