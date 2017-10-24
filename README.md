@@ -100,7 +100,7 @@ Shows an elegant notification message. Leave 'type' as blank for default notific
 
 Sets the content of the containing body element
 
-    var content = "<p>This is the content!</p";
+    var content = "<p>This is the content!</p>";
     demo.setContent(content);
 
 Sets the style of the target element. Use '#elementID' for an element with id and '.class' for elements in a class
