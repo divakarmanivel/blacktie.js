@@ -12,7 +12,7 @@ BlackTie aims to create applications that are compatible with all browsers and d
 
 # Setup
 
-For a live demo, visit [BlackTie.js](http://divakarmanivel.github.io/blacktie.js/) on desktop or mobile.
+For a live demo, visit [BlackTie.js](https://divakarmanivel.github.io/blacktie.js/) on desktop or mobile.
 <p align="center">
 <img src="./images/demo.gif" alt="Demo"/>
 </p>
