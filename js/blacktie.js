@@ -353,7 +353,9 @@ var hamburger = {
 				$(".ham-item").css("display", "none");
 			}
 		});
-
+		mywindow.on('beforeunload', function(){
+			$('#ham-trigger').prop('checked', false);
+		});
 		mywindow.scroll(function () {
 			newscroll = mywindow.scrollTop();
 
