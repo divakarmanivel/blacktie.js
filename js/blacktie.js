@@ -494,19 +494,24 @@ function stripNullObject(obj) {
 	return obj;
 }
 
+/*
+// TODO - Implement better lazy loading instead of this pre-loading
 //pre-loads images for smoother performance
 var imager = function () {
-	var i = 0;
-	var tags = document.getElementsByTagName("img");
-	imageObj = new Image();
-
-	for (i = 0; i < tags.length; i++) {
-		imageObj = tags[i].getAttribute("src");
-		tags[i].setAttribute("src", imageObj);
-		this.log(imageObj);
-	}
+	$(window).on('load', function() {
+		var i = 0;
+		var tags = document.getElementsByTagName("img");
+		imageObj = new Image();
+	
+		for (i = 0; i < tags.length; i++) {
+			imageObj = tags[i].getAttribute("src");
+			tags[i].setAttribute("src", imageObj);
+			blacktie.log(imageObj);
+		}
+	});
 };
 imager();
+*/
 
 //initializes the notifier
 var notifier = function () {

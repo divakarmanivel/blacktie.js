@@ -48,9 +48,10 @@ function createTable(name) {
 
 function imagemk() {
 	var img = new Image();
-	img.load("http://www.gettyimages.co.uk/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg");
+	img.src = "http://www.gettyimages.co.uk/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg";
 	document.getElementById("imager").appendChild(img);
 	return false;
 }
+imagemk();
 
 */
